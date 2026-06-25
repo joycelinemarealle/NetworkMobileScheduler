@@ -12,6 +12,18 @@ _deps
 CMakeUserPresets.json
 
 # CLion
+# JetBrains specific template...
+#cmake-build-*
+
+# Ignore all CLion build directories
+cmake-build-*/
+
+# Ignore IDE settings
+.idea/
+
+# macOS
+.DS_Store
+# CLion
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
