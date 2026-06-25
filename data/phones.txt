@@ -1,2 +1,4 @@
 PHONE1 region=us-west priority=3 bandwith=120
 PHONE2 region=us-west priority=1 bandwith=500
+PHONE3 region= priority=2 bandwith=100
+PHONE4 region=us-east priority=1 bandwith=0

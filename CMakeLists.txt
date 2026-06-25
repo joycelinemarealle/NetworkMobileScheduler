@@ -4,7 +4,7 @@ project(SpaceX)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(SpaceX oldmain.cpp
-        Phone.cpp
+        src/Phone.cpp
         include/Phone.h
         include/Satellite.h
-        main.cpp)
+        src/main.cpp)
