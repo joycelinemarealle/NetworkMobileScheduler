@@ -1,0 +1,67 @@
+Memory allocation
+Static- for static, global variables. known sizes eg array use Stack, memory located when program running and persis through life of program
+Aut - for functions parameters. memory allocated when function runs and freed up after function ends
+
+both static + aut 1) size of memory known 2) allocation+deallocation when variables made/destroyed
+
+Dynamic- locate memory when needed request from OS when needed. prevents overspending, stack overflow, trying to find which part of memory has been used
+       - memory is from heap
+       - returns a pointer with address of memory location
+
+       stack vs heap
+       static/local vair,faster since address known | dynamic variables, free, slower two steps get address then object
+
+pointers - help get heap allocated objects since has address of where they are located
+- responsible for requesting and dispositng of dynamically allocate memory
+
+New operator to call dynamically memory allocation, request memory from OS when needed
+Delete operator no deletion actually happening only returns memory pointed to backt ot he operating system
+Dangling pointer - pointer pointing to deallocated memory
+   - deallocating memory no the memory address has another value, or used by os or another application
+
+
+   memory leak
+   - when dynamically allocated memeory it address is lost. can have ptr variables going out of scope after function. variable ptr dies
+   so no way to access the address of memory. memory leaks. we loss the address of some bit of dynamically allocated memory beofre giving it back to OS
+   Os canot use it, we cannot delete it, eats up memory
+
+
+
+   Questions
+   1. Stack vs heap , when local vs longterm variable, malloc/new which one?
+
+   Stack - fixed chuchn of memory address
+            allocate memory for local variables and function calls.
+
+
+        LIFO last in first out
+        Faster since address known
+        acts as arrayd ata structure except cannot randloly access eement, have to go in order. topc top at plate pop
+
+
+   Heap - big pool of memory
+       free store
+       dynamic memory allocation for longterm variables.  so request memory from Os when needed.
+       Slower since 2 steps 1) address 2) then object.
+       Good when want to  reduce risk of stack overflow, memory wastage, knowing which bit of memory has been used up
+       access use malloc/new operator pointer returns memory address
+       derenfcing pointer slowe than accessing variable directly
+
+
+   2. why c known as memory unsafe language
+   3 given a function that calculates shorted path in a graph. how to very working correctly?
+   4. What is a systems call, exict, fork, write()
+   5. TCP vs UDP
+
+
+   Ref vs pointers
+   ref
+   - function parameters
+   - read only
+   large objects to avoid copying
+
+   pointers
+   - when nothing is a valid value, null ptr can be returned but a reference cannot be null
+
+   ref or pointers when to use
+   - use ref when the object values must exist, esp for function parameters. ppionter when null is valid , need dynamic memory and ownership semantics

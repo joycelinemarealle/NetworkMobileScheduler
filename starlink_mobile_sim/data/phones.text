@@ -1,0 +1,2 @@
+PHONE1 region=us-west priority=3 bandwith=120
+PHONE2 region=us-west priority=1 bandwith=500

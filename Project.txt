@@ -1,0 +1,112 @@
+
+Build relatitme software tha t plans network topology for satellite/mobile connectivity
+
+Assigne phones to satellites based on same region, available satellite capacity, higher priority first(, reject invlaid input
+
+DAILY QNS
+ 1. Satellites have limited capacity, how do we allocate phones wit
+ 2. if lost phone connection, how do we recover
+ 3. invalid data packet, reject or recover
+ 4. satellite overload, move users elsewhere eg nyc worldhup
+ 5. configuration file malformed, fail gracefully
+ 6. software passed on simulation but fails on hardware how to debug
+
+
+ STARLINK MOBILE NETWORK PLANNER
+ Plan and execute network topology
+ phones requesting services -> scheduler -> assign satellites -> update remaining capacity -> generate report network sate-> validation tests
+
+
+Modeled network with phone and satellites structs,
+parsed input files,
+validate malformed data,
+scheduled phones while respecting satellites constrains
+tests fir failure scenarios, invalid input, duplicates, unavailable satellites
+
+
+Stage 1 parse input
+Stage 2 validate
+Stage 3 Scheduling
+Stage 4 simulate failures
+Stage 5 Testing
+Stage 6 performance
+
+
+Stage 1
+            Parse input
+            Read
+            PHONE1 us-west 120 priority=3
+            PHONE2 us-east 300 priority=1
+            Concepts: file IO, string parsing, vector, structs
+
+Define data model, read file, parse each line, validate basic fields,print results
+
+goal
+PHONE1 region=us-west priority=3 bandwith=120
+PHONE2 region=us-west priority=1 bandwith=500
+
+
+The phone ID is textual data rather than a numeric value. std::string manages memory automatically,
+ supports variable-length identifiers, and makes comparison and manipulation straightforward. It also avoids the fixed-size and memory-safety issues of C-style character arrays."
+Stage 2
+
+        Validate
+        Questions:Does phone ID exist?, Negative bandwidth?, Invalid region?,   Missing priority?,    Duplicate phone?
+        How do you verify software?
+
+Stage 3
+
+Scheduling
+
+Satellite
+
+        SAT1 capacity=500
+        Phones 120, 300, 300
+        Scheduler decides
+        PHONE1 → SAT1, PHONE2 → SAT1, PHONE3 → rejected
+        Why? Capacity exceeded.
+
+
+Stage 4
+
+        Now simulate failures.
+        Satellite dies.SAT1 offline
+        Can users reconnect?Maybe not.PrintNo satellite available.
+Stage 5
+
+Testing
+
+
+Write tests for:Empty phone list, Empty satellite list, Negative bandwidth,Duplicate phone,No capacity,Unknown region, Malformed line,Invalid integer
+
+Stage 6
+
+        Performance
+
+        Now ask 100 phones, 10 satellites Can scheduler still work?
+
+        No optimization needed.
+
+        Just thinkHow much memory?How many loops?
+
+        Can I avoid unnecessary copies?Now you're thinking like systems software.
+
+Stage 7
+
+Clean architecture
+
+        Split
+
+        Phone.h
+
+        Satellite.h
+
+        Parser.cpp
+
+        Scheduler.cpp
+
+        Validator.cpp
+
+        main.cpp
+
+This is exactly how production C++ looks.
