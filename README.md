@@ -5,9 +5,8 @@
 ## Overview
 
 The Starlink Mobile Scheduler Simulator is a C++17 project that models a simplified version of how a mobile satellite network allocates phones to satellites.
-
-The project is designed to strengthen modern C++ fundamentals while simulating the engineering workflow of production networking software. Rather than focusing on isolated algorithms, it emphasizes parsing, validation, scheduling, testing, and clean software design.
-
+I built this project to better understand how network software processes requests. It starts by reading and validating phone requests, then models scheduling decisions under capacity constraints, similar to how a real network planner might work.
+The project is designed to strengthen modern C++ fundamentals while simulating the engineering workflow of production networking software. It emphasizes parsing, validation, scheduling, testing, and clean software design.
 ---
 
 ## Goal

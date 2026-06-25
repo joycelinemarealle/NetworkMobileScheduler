@@ -1,5 +1,5 @@
 
-Build relatitme software tha t plans network topology for satellite/mobile connectivity
+Build relatitme software that plans network topology for satellite/mobile connectivity
 
 Assigne phones to satellites based on same region, available satellite capacity, higher priority first(, reject invlaid input
 
